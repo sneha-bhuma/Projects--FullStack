@@ -1,0 +1,71 @@
+<div class="card" style="width: 220px">
+    
+    <div class="gallery">
+        <img *ngIf="bdet?.image" class="card-img-top" 
+        [src]="bdet?.image" [width]="220" [height]="200"
+            alt="Card image" />
+    </div>
+
+    <h3>
+        <a [title]="bdet?.title + ' details'" [routerLink]="['/book', bdet?.id]">
+            {{ bdet?.title }} 
+        </a>     
+    </h3>
+    <h3>By <b>{{bdet?.author}}</b></h3>
+    
+    <h3>{{bdet?.category}} - {{bdet?.publication_date}}</h3>    
+    
+    
+    <p class="card-text">
+        Price: <b>{{ bdet?.price | currency : "INR" : "symbol" }}</b>
+    </p>
+    <button class="btn btn-primary" type="button"  style="margin-right: 15px; " (click)="sendDetails()">Add to
+        Cart</button>
+
+    
+
+    
+
+
+</div>
+
+
+
+
+
+
+<!-- <div class="gallery"> <img
+    *ngIf="bdet?.image"
+    class="card-img-top"
+    [src]="bdet?.image"
+    [width]="150"
+    [height]="250"
+    alt="Card image"
+  />
+</div>
+
+
+
+<h3>
+    <a [title]="bdet?.title + ' details'" [routerLink]="['/book', bdet?.id]">
+        {{ bdet?.title }}
+    </a>
+</h3>
+
+<p class="card-text">
+    <b>Author:</b> {{ bdet?.author }}
+</p>
+<p class="card-text">
+    <b>Category:</b> {{ bdet?.category }}
+</p>
+<p class="card-text">
+    <b>Price:</b> {{ bdet?.price | currency : "INR" : "symbol" }}
+</p>
+
+
+
+
+
+
+
+ -->

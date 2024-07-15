@@ -1,0 +1,71 @@
+<br /><br /><br /><br />
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-5">
+      <div class="search-container">
+        <input type="text" class="form-control search-input" placeholder="Search Books" [(ngModel)]="searchTerm">
+
+        <button class="btn btn-warning" (click)="search()" style="width:50px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="40px" fill="currentColor" class="bi bi-search"
+          viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg></button>
+      </div>
+    </div>
+
+    
+
+    <div class="col-md-5">
+      <mat-form-field appearance="outline" style="width:400px;">
+        <mat-label>Select Category</mat-label>
+        <mat-select [(value)]="selected">
+          
+          <mat-option *ngFor="let category of getUniqueCategories()" [value]="category">{{ category }}</mat-option>
+        </mat-select>
+      </mat-form-field>&nbsp;
+        <button class="btn btn-warning " (click)="getfiltered()" style="width:135px;  height: 55px;">Filter <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z" />
+        </svg></button>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-warning" (click)="reset()" style="width:110px;  height: 55px;">Reset <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-repeat"
+          viewBox="0 0 16 16">
+          <path
+            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9" />
+          <path fill-rule="evenodd"
+            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z" />
+        </svg></button>
+    </div>
+  </div>
+
+  
+  
+</div>
+  <div class="card-deck" style="margin-left: 2.5rem;text-align:center; ">
+    <div class="card " style="width: 300px;height: 550px;  display:inline-block;margin-left: 2rem;margin-top: 2rem;"
+      *ngFor="let b of filteredBook">
+  
+  
+      <div class="gallery">
+        <img *ngIf="b.image" class="card-img-top" [src]="b.image" [width]="220" [height]="300" alt="Card image" />
+      </div>
+  &nbsp;
+      <h3>
+        <a [title]="b.title + ' details'" [routerLink]="['/book', b.id]" style="color:black;">
+          {{ b.title }}
+        </a>
+      </h3>
+      <h3>By <b>{{b.author}}</b></h3>
+  
+      <h3>{{b.category}} - {{b.publication_date}}</h3>
+  
+  
+      <p class="card-text">
+        Price: <b>{{ b.price | currency : "INR" : "symbol" }}</b>
+      </p>
+      <button class="btn btn-warning" type="button" style="margin:5px " (click)="sendDetails(b)">Add to
+        Cart</button>
+</div>

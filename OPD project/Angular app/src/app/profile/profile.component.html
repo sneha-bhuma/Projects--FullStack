@@ -1,0 +1,51 @@
+<!-- <body style="background-color: rgba(255, 166, 0, 0.5); /* Set the background color for the entire page */
+min-height: 100vh; /* Ensure body is at least 100% of viewport height */
+margin: 0; /* Remove default body margin */
+justify-content: center; /* Center content horizontally */
+align-items: center;"> -->
+<div class="image-container">
+  <div class="container">
+    <div id="maindiv" class="container" [ngStyle]="{ 'border-color': loginForm.valid ? 'blue' : 'red' }" style="
+    margin-top:100px;
+    width: 300px;
+    border: 3px solid blue;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 10px 10px 20px lightblue;
+    background-color: rgba(191, 211, 239, 0.148);
+    width: 300px;
+  ">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div style="line-height: 200px; vertical-align: middle">
+          <h2>
+            Log In
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"
+              style="position: relative; padding-top: 4px"></mat-icon>
+          </h2>
+        </div>
+        <mat-form-field>
+          <mat-label>User Id</mat-label>
+          <input matInput placeholder="User Id" formControlName="userid" name="userid" autocomplete="off" id="user" />
+          <mat-error> Please provide User Id </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Password" formControlName="passwd" name="passwd"
+            autocomplete="off" id="pwd" />
+          <mat-error> Please provide Password </mat-error>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button color="primary" [disabled]="!loginForm.valid">
+          Login
+        </button>
+        <!-- <div *ngIf="navigate" routerLink="['/patientnav']"></div> -->
+      </form>
+    </div>
+    <br />
+    <!-- </div> -->
+    <p style="text-align: center; ">New User?
+      <a href='/patientsignup'>Create Account</a>
+    </p>
+  </div>
+</div>

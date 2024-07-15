@@ -1,0 +1,95 @@
+<br /><br /><br/>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../../assets/images/1719823826136.jpg" class="d-block w-100" alt="..." >
+            <div class="carousel-caption d-none d-md-block">
+                <h5>One Stop Shop For All Types Of Books</h5>
+                <p>One Place To Satisfy Your Bibliophilia And Learn.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="../../assets/images/1719823894400.jpg">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Pick From A Diverse Range Of Books</h5>
+                <p>We Host Huge Variety of Books Covering Each Genre and Type There Exists!</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="../../assets/images/Capture.PNG" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Easy To Sort, Easier To Order</h5>
+                <p>User Friendly UI that helps you to browse and order in minutes.</p>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div><br/>
+
+<div class="container">
+    <div class="search-container">
+        <input type="text" class="form-control search-input" placeholder="Search Your Book" [(ngModel)]="searchTerm" >
+
+        <button type="button" class="btn btn-warning" (click)="search()" style="width:50px" ><svg 
+                xmlns="http://www.w3.org/2000/svg" width="16" height="40px" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg></button>
+    &nbsp;&nbsp;
+
+    <button type="button" class="btn btn-warning" (click)="reset()" style="width:210px;  height: 55px;">Reset <svg
+            xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-repeat"
+            viewBox="0 0 16 16">
+            <path
+                d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9" />
+            <path fill-rule="evenodd"
+                d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z" />
+        </svg></button>
+</div>
+<br />
+
+
+<div class="card-deck" style="margin-left: 2.5rem;text-align:center">
+    <div class="card " style="width: 300px;height: 550px;  display:inline-block;margin-left: 2rem;margin-top: 2rem;"
+        *ngFor="let b of filteredBook">
+
+
+        <div class="gallery">
+            <img *ngIf="b.image" class="card-img-top" [src]="b.image" [width]="220" [height]="300" alt="Card image" />
+        </div>
+        &nbsp;
+        <h3>
+            <b>{{b.title}}</b>
+                
+        </h3>
+        <h3>By <b>{{b.author}}</b></h3>
+
+        <h3>{{b.category}} - {{b.publication_date}}</h3>
+
+
+        <p class="card-text">
+            Price: <b>{{ b.price | currency : "INR" : "symbol" }}</b>
+        </p>
+        <a class="btn btn-primary" type="button" style="margin:5px " [routerLink]="['/book', b.id]">Details</a><br />
+    </div>
+<div class="container">
+    <br /><br />
+    <div>
+        <canvasjs-chart [options]="chartOptions"></canvasjs-chart>
+    </div>
+</div>

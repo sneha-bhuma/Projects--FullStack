@@ -1,0 +1,58 @@
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary"> -->
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/patientnav']"><mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="home"
+        style="font-size: smaller;vertical-align: middle;"></mat-icon>Patient Dashboard
+        
+       </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/registrationform']">Patient Registration form</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/book-appointment']">Appointment Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/patient-appointment-management']">Appointment Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/feedback']">Feedback</a>
+          </li>
+          
+          <button type="button" class="btn btn-primary" *ngIf="(loggedin$ | async) == 1"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Logout
+          </button>
+          
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Do you want to logout?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"  [routerLink]="['/']">Yes</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick = "javascript:history.back()" >No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+        </ul>
+        <a class="navbar-brand" [routerLink]="['/patientnav']">
+          <mat-icon aria-hidden="false" aria-label="account_circlen" fontIcon="account_circle" style="font-size: larger;vertical-align: middle;"></mat-icon>
+          Patient Id : {{patient_id}}
+        </a>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,22 @@
+<!-- <app-login></app-login> -->
+<div id="maindiv" class="container" style="
+    margin: auto;
+    margin-top: 100px;
+    width: 300px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 10px 10px 20px lightblue;
+    background-color: rgba(191, 211, 239, 0.148);
+">
+    <h2 style="text-align:center">Confirm Logout?</h2><br />
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <!-- <a class="btn btn-outline-success" href="#" >Yes</a> -->
+                <button class="btn btn-outline-success" type="utton" (click)="Submit()" [routerLink]="['/']">Yes</button> &nbsp;
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-danger" type="button" (click)="SubmitNo()">No</button>
+            </div>
+            </div>

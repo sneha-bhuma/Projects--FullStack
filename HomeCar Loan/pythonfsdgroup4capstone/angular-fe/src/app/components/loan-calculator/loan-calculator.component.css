@@ -1,0 +1,52 @@
+.forFlex {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.input-summary-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+ 
+.input-container, .summary-container {
+  flex: 1;
+  min-width: 100px;
+  border: 1px solid #1a116d;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(69, 102, 212, 0.849);
+  transition: transform 0.3s ease-in-out;
+}
+ 
+.input-container:hover, .summary-container:hover {
+  transform: scale(1.05);
+}
+ 
+ 
+.emi-details-container {
+  width: 100%;
+  margin-top: 20px;
+}
+ 
+.bgimg {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../assets/images/Calculator.jpg");
+  background-repeat: repeat;
+  opacity: 2.0;
+}
+ 
+th {
+  background-color: #1238a1; /* Change this color to your preferred background color */
+  color: #fcf8f8; /* Optional: Change the text color if needed */
+  padding: 10px; /* Optional: Add padding for better spacing */
+}

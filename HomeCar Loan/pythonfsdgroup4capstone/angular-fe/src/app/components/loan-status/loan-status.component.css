@@ -1,0 +1,22 @@
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #0e0d79;
+    color: rgb(255, 255, 253);
+  }
+
+li{
+    list-style-type: none;
+}
+
+.main {
+  background: linear-gradient(to bottom right, #e5ec76, #e29229); /* Colorful gradient background */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9; /* Slightly reduce opacity for a softer look */
+  min-height: 100vh; /* Ensure the background covers the entire viewport height */
+  /* display: flex; */
+  align-items: center; /* Center the container vertically */
+  justify-content: center; /* Center the container horizontally */
+  background-image: url("../../../assets/images/OIP\ \(1\).jpg");
+}

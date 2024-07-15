@@ -1,0 +1,62 @@
+<br /><br /><br/><br/>
+
+                <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+                <h1>Post Your Review</h1>
+                    <mat-form-field appearance="outline" style="width: 400px;">
+                        <mat-label>Select book</mat-label>
+                        <mat-select [(value)]="selected">
+                            @for (a of books; track a) {
+                            <mat-option [value]="a.title">{{a.title}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                    
+                    
+                    <mat-form-field appearance="outline" style="width: 200px;">
+                        <mat-label> Rate Your Experience</mat-label>
+                    <mat-select [(value)]="rating">
+                        
+                        <mat-option [value]="1" >Really Bad<star-rating [starType]="'svg'" [rating]="1" [readOnly]="true"></star-rating></mat-option>
+                        <mat-option [value]="2">Meh!<star-rating [starType]="'svg'" [rating]="2" [readOnly]="true"></star-rating></mat-option>
+                        <mat-option [value]="3">Good Read<star-rating [starType]="'svg'" [rating]="3" [readOnly]="true"></star-rating></mat-option>
+                        <mat-option [value]="4">Loved It!<star-rating [starType]="'svg'" [rating]="4" [readOnly]="true"></star-rating></mat-option>
+                        <mat-option [value]="5">Recommended<star-rating [starType]="'svg'" [rating]="5" [readOnly]="true"></star-rating></mat-option>
+                        
+                    </mat-select></mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 400px;">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput id="desc" type="text" formControlName="desc" ></textarea>
+                    </mat-form-field>
+                    
+                    <button class="btn btn-warning" type="submit" style="margin-left: 50px; width: 200px; height:60px" >Submit
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill"
+                            viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+                        </svg>
+
+                    </button><br />
+                </form>
+            
+        @if (error){
+        <div class="alert alert-danger">
+            {{ error }}</div>
+        } @else{
+
+            <h1>Some Reviews From Our Users</h1><br/>
+            <div class="card-deck" style="margin-left: 2.5rem">
+@for (r of reviews; track $index) {
+<div class="card" style="width: 200px;height: 400px;  display:inline-block;margin-left: 2rem;margin-top: 2rem;">
+    <br/>
+    <div class="card-body" style="text-align:center">
+        <img class="card-img-top" [src]="r.image" [width]="50" [height]="100"  />
+        <h5 class="card-title"><b>{{r.book_title}}</b></h5>
+        <p class="card-text">by {{r.user_name}}</p>
+    <star-rating [starType]="'svg'" [rating]="r.rating" [readOnly]="true" ></star-rating>
+        <br/>
+        <p class="card-text" style="text-align:center">'{{r.comment}}'</p>
+        
+    </div>
+</div>}</div>}
+
+

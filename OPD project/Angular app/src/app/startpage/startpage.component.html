@@ -1,0 +1,28 @@
+<body style="background-color: rgba(78, 173, 194, 0.811); /* Set the background color for the entire page */
+margin: 0; /* Remove default body margin */
+display: flex;
+justify-content: center; /* Center content horizontally */
+align-items: center;">
+
+<div class="box" style="display: flex;" >
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="../../assets/images/person.jpg" alt="person image" height="250px" width="200px">
+    <div class="card-body">
+      
+      
+      <a class="btn btn-primary" [routerLink]="['/profile']" (click)="onButtonClick()">Patient</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="../../assets/images/staff.jpg" alt="staff image" height="250px" width="200px">
+    <div class="card-body">
+      
+      
+      <a href="#" class="btn btn-primary" [routerLink]="['/staffprofile']" (click)="onButtonClick()">Hospital Management</a>
+    </div>
+  </div>
+</div>
+
+</body>
+  
+

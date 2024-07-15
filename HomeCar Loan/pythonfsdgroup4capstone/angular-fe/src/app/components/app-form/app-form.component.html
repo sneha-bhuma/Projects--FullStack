@@ -1,0 +1,136 @@
+<div class="bgimg">
+  <div class="container">
+    <mat-horizontal-stepper [linear]="false" #stepper>
+      <!-- Personal Details Step -->
+      <mat-step [stepControl]="personalDetailsForm">
+        <form [formGroup]="personalDetailsForm">
+          <ng-template matStepLabel>Personal Details</ng-template>
+
+          <mat-form-field class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date_of_birth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Marital Status</mat-label>
+            <mat-select formControlName="marital_status">
+              <mat-option value="single">Single</mat-option>
+              <mat-option value="married">Married</mat-option>
+              <!-- <mat-option value="divorced">Divorced</mat-option> -->
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address" rows="3"></textarea>
+            <mat-error
+              *ngIf="personalDetailsForm.get('address')?.invalid && personalDetailsForm.get('address')?.touched">
+              Address is required.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput formControlName="mobile_number">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Occupation</mat-label>
+            <mat-select formControlName="occupation">
+              <mat-option value="student">Student</mat-option>
+              <mat-option value="employee">Employee</mat-option>
+              <mat-option value="selfemployed">Self-employed</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="button-group">
+            <button mat-button matStepperNext>Next</button>
+          </div>
+
+        </form>
+      </mat-step>
+
+      <!-- Financial Details Step -->
+      <mat-step [stepControl]="financialDetailsForm">
+        <form [formGroup]="financialDetailsForm">
+          <ng-template matStepLabel>Financial Details</ng-template>
+
+          <mat-form-field class="full-width">
+            <mat-label>Monthly Income</mat-label>
+            <input matInput formControlName="monthly_income" type="number">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Bank Account Details</mat-label>
+            <input matInput formControlName="bank_account_details" type="number" maxlength="10">
+            <mat-error *ngIf="financialDetailsForm.get('bank_account_details')?.hasError('required')">
+              Bank Account is required.
+            </mat-error>
+            <mat-error
+              *ngIf="financialDetailsForm.get('bank_account_details')?.hasError('minlength') || financialDetailsForm.get('bank_account_details')?.hasError('maxlength')">
+              Bank Account must be exactly 10 digits long.
+            </mat-error>
+          </mat-form-field>
+
+          <div class="button-group">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+
+        </form>
+      </mat-step>
+
+      <!-- Loan Details Step -->
+      <mat-step [stepControl]="loanDetailsForm">
+        <form [formGroup]="loanDetailsForm">
+          <ng-template matStepLabel>Loan Details</ng-template>
+
+          <mat-form-field class="full-width">
+            <mat-label>Loan Amount</mat-label>
+            <input matInput formControlName="loan_amount" type="number">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Tenure(in years)</mat-label>
+            <input matInput formControlName="tenure">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Loan Type</mat-label>
+            <mat-select formControlName="loan_type">
+              <mat-option value="home">Home Loan</mat-option>
+              <mat-option value="car">Car Loan</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="button-group">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="onSubmit()">Submit</button>
+          </div>
+
+        </form>
+      </mat-step>
+
+    </mat-horizontal-stepper>
+  </div>
+</div>

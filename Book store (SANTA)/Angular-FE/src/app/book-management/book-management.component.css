@@ -1,0 +1,89 @@
+.bgimg {
+    background-image: url("https://images.squarespace-cdn.com/content/v1/5b4cff6eee175958cda1bd56/1533834991945-5C5G4RJ2ARYREFZXV6V0/Books.jpg");
+    /* Adjust background properties as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Set a fallback background color in case the image fails to load */
+    background-color: #f1f1f1;
+
+}
+
+
+.form-container {
+    background-color: rgba(63, 22, 22, 0.5); /* Black with 50% opacity */
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 100px 2px 4px rgba(131, 5, 5, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Style for form elements */
+.form-group {
+    margin-bottom: 15px;
+    color: bisque;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Style the container for the cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.card {
+    width: 150px;
+    height: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: relative;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+}
+
+.card-button {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ff8a00;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 0.5rem;
+        cursor: pointer;
+}
+

@@ -1,0 +1,32 @@
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 14px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 14px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}

@@ -1,0 +1,12 @@
+.card:hover{
+    background-color: lightcyan;
+    transform: scale(1.1);
+}
+mat-form-field{
+    margin: 20px
+}
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}

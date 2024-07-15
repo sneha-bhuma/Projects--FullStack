@@ -1,0 +1,57 @@
+.logout-dialog {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   
+  .logout-content {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+   
+  .logout-title {
+    color: red;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+   
+  .logout-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+   
+  .logout-button.yes-button {
+    background-color: #119111;
+    color: white;
+  }
+   
+  .logout-button.no-button {
+    background-color: #ce1818;
+    color: white;
+    margin-left: 10px;
+  }
+   
+  .logout-button:hover {
+    background-color: #333;
+  }
+
+  .logout-dialog {
+    background: linear-gradient(to bottom right, #e5ec76, #e29229); /* Colorful gradient background */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9; /* Slightly reduce opacity for a softer look */
+    min-height: 100vh; /* Ensure the background covers the entire viewport height */
+    /* display: flex; */
+    align-items: center; /* Center the container vertically */
+    justify-content: center; /* Center the container horizontally */
+    background-image: url("../../../assets/images/OIP\ \(1\).jpg");
+  }
+  

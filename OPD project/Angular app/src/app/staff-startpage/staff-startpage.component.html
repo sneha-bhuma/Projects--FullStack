@@ -1,0 +1,50 @@
+
+<app-docnav></app-docnav>
+<div class="image-container">
+<div style="display: flex;padding-left: 200px; align-items: center;">
+<div class="card text-bg-danger mb-3" style="width: 18rem;">
+    <!-- <div class="card-header">Doctor count</div> -->
+    <div class="card-body">
+      <h5 class="card-title">Doctor</h5>
+      <p class="card-text" >No. of Doctors {{doctorCount}}</p>
+    </div>
+  </div>
+  
+<div class="card text-bg-info mb-3" style="width: 18rem;">
+    <!-- <div class="card-header">Header</div> -->
+    <div class="card-body">
+      <h5 class="card-title">Patients</h5>
+      <p class="card-text">No. of Patients {{patientCount}}</p>
+    </div>
+</div>
+
+<div class="card text-bg-success mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Appointments</h5>
+      <p class="card-text">No. of Appointments {{appointmentsCount}}</p>
+    </div>
+  </div>
+
+</div>
+
+<div  class="table table-secondary table-striped">
+  <table >
+      <tr>
+          <th>Patient ID</th>
+          <th>Patient Name</th>
+          <th>Doctor's Name</th>
+          <th>Problem Description</th>
+          <th>Appointment Date & Time</th>
+          
+      </tr>
+      <tr *ngFor="let each of appointments,let i=index">
+          <td>{{each.patient_id}}</td>
+          <td>{{patname[each.patient_id]}}</td>
+          <td>{{docname[each.doctor_id]}}</td>
+          <td>{{each.problem_description}}</td> 
+          <td>{{each.appointment_date}}</td>
+          
+      </tr>
+  </table>
+</div>
+</div>

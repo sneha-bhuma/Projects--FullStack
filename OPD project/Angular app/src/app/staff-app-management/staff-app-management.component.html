@@ -1,0 +1,34 @@
+
+<app-docnav></app-docnav>
+<div style="background-color: lightgray;">
+  &nbsp;
+<table class="table table-hover table-striped table-bordered mt-3" >
+  
+  <thead class="table-primary">
+        <tr>
+          <th scope="col">Appointment ID</th>
+          <th scope="col">Patient Name</th>
+          <th>Doctor Name</th>
+          <th scope="col">Appointment Date</th>
+          <th scope="col">Slot</th>
+          <th scope="col">Problem Description</th>
+          <th colspan="1">Status</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let each of appointments,let i=index">
+            <td>{{each.appointment_id}}</td>
+            <td>{{patname[each.patient_id]}}</td>
+            <td>{{docname[each.doctor_id]}}</td>
+            <td>{{each.appointment_date}}</td>
+            <td>{{each.slot}}</td>
+            <td>{{each.problem_description}}</td> 
+            <td>{{each.status ?? 'Not Approved'}}</td>
+            <td><button (click)="changeStatus(each)"><mat-icon>check_circle</mat-icon></button></td>
+            <td><button (click)="getAppointmentstById(each.appointment_id,i)"><mat-icon>cancel</mat-icon></button></td>
+            
+            
+        </tr>
+      </tbody>
+  </table>

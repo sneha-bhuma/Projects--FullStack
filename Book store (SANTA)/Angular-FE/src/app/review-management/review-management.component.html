@@ -1,0 +1,18 @@
+
+    <br /><br /><br /><br/>
+<h1 style="text-align: center;">Manage Reviews</h1>
+<br />
+
+
+<div class="card-container">
+<div class="card" *ngFor="let item of reviews" style="width: 200px;height: 340px;  display:inline-block;margin-left: 2rem;margin-top: 2rem;">
+ 
+  <h4 class="card-title" style="color:rgb(1, 1, 90)"><b>{{ item.book_title }}</b></h4>
+<p class="card-text">Rating: {{ item.rating }}</p>
+<p class="card-text">Comment:<br/> {{ item.comment }}</p>
+<button mat-mini-fab color="warn" (click)="deleteReview(item)"
+        style="position: absolute; bottom: 0%; left: 50%; transform: translate(-50%, -50%);">
+<mat-icon>delete</mat-icon>
+</button>
+</div>
+</div>

@@ -1,0 +1,45 @@
+<br /><br /><br />
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="gallery">
+        <img *ngIf="bdet?.image" [src]="bdet?.image" [width]="250" [height]="300" alt="Book Cover Image">
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <h1 class="mb-3"><b>{{bdet?.title}} </b></h1>
+      <h3>{{bdet?.author}}
+        <pre class="text-muted mb-2">(Author)</pre>
+      </h3>
+      <p><Strong>Category: </Strong>{{bdet?.category}}</p>
+      <p><strong>Synopsis:</strong> {{bdet?.synopsis}}</p>
+      <p>Published in <strong>{{bdet?.publication_date}}</strong></p>
+      <p><strong>ISBN: </strong>{{bdet?.isbn}}</p>
+      <p style="text-align:center; cursor: pointer" (click)="toggleReviewsVisible()">{{finalRating}} ({{no_of_reviews}}
+        reviews)</p>
+      <star-rating [readOnly]="true" [starType]="'svg'" [rating]="finalRating"></star-rating> 
+      <div *ngIf="showReviews">
+        <h3><strong>Review comments:</strong></h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let comment of comments">{{ comment }}</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="col-md-3">
+      <p class="mb-0"><Strong> {{ bdet?.price | currency : "INR" : "symbol" }}</Strong></p>
+      <p style="color:green">In stock</p>
+      <button class="btn btn-warning" (click)="sendDetails()">Add To Cart</button>
+    </div>
+
+
+
+  </div>
+</div>

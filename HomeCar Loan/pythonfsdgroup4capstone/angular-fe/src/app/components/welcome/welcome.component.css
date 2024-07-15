@@ -1,0 +1,49 @@
+.cta-button:hover {
+    background-color: #ff9900;
+    color: #ffffff;
+    transform: scale(1.05);
+ 
+   
+}
+ 
+.bgimg {
+    background-image: url('../../../assets/images/welcome-bg.avif');
+    background-repeat: repeat; /* Prevent image repetition */
+    background-size: cover; /* Make the image cover the entire page */
+  }
+
+
+ 
+.welcome-container {
+    text-align: center;
+    padding: 100px; /* Adjust as needed */
+    color: #1a0202;
+    text-shadow: #948989;
+    text-decoration: solid;
+}
+ 
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ee0e0e;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+ 
+.more-content {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #110101;
+    margin:auto;
+}
+ 
+ul{
+    list-style-type: none;
+}
+ 
+li{
+    list-style-type: none;
+}

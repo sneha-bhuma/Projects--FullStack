@@ -1,0 +1,9 @@
+.image-container {
+    background-image: url("../../assets/images/staffprofile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 10px;
+    width: 100vw;
+    height: 100vh;
+}

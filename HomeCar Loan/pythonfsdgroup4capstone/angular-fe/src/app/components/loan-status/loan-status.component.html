@@ -1,0 +1,38 @@
+<div class="main" style="height: 500px;">
+  <br /><br/> <br/>
+  <div *ngIf="emps.length === 0">
+    <h1 style="color: rgb(223, 22, 22); text-align: center;">"Your loan application list is as empty as a Monday morning meeting agenda! 😄"</h1>
+  </div>
+    <div *ngIf="emps.length > 0">
+      <h2 style="color: rgb(29, 29, 31);"><b>Profile:</b> {{userEmail}} below is your loan status</h2>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>User Email</th>
+            <th>Loan Amount</th>
+            <th>Loan Type</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of emps">
+            <td>{{ emp.user_name }}</td>
+            <td>{{ emp.user_email }}</td>
+            <td>{{ emp.loan_amount }}</td>
+            <td>{{ emp.loan_type }}</td>
+            <td>{{ emp.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <br /> <br />
+    <p style="color: rgb(207, 21, 21);">
+      If any queries/assistance, feel free to reach out to
+      our below customer support team:
+    </p>
+    <li>Email: info&#64;psmlbank.com</li>
+    <li>Phone: +1 (123) 456-7890</li>   
+  </div>

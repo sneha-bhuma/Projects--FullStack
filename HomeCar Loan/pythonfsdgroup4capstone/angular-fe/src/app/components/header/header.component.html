@@ -1,0 +1,48 @@
+<header>
+  <div class="container" style="height: 50px; margin-bottom: 20px; margin: 0;">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-3">
+        <div class="logo" style="margin-left: 0%;">
+          <img src="../../../assets/images/bank-f.PNG" class="logo" alt="">
+        </div>
+        
+     
+        <!-- <div><h6 style="color: white;">p:{{userEmail}}</h6></div> -->
+      </div>
+      <div class="col-md-9 col-sm-9 col-9 text-end">
+        <div class="menu-icon" (click)="openMenu()">
+          <li class="{{menu_icon}}"></li>
+        </div>
+        <div class="desktop_menu" [class.mobile_menu]="menuValue">
+          
+          <ul>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['register']">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['app-form']">Loan Form</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['calculator']">EMI Calculator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['status']">Status</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['feedback']">Feedback</a>
+            </li>
+         
+            <li class="nav-item" *ngIf="(loggedin$ | async) == 1"><!-- 1 for enable -->
+              <a class="nav-link" [routerLink]="['/logout']">Logout</a>
+            </li>
+            
+            <!-- disable login on logout -->
+            <li class="nav-item" *ngIf="(loggedin$ | async) == 0"><!-- 0 for disable -->
+              <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

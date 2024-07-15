@@ -1,0 +1,45 @@
+<div class="bgimg" style="height:500px">
+  <br /><br />
+  <div id="maindiv" class="container" [ngStyle]="{ 'border-color': loginForm.valid ? 'blue' : 'red' }" style="
+        margin: auto;
+        width: 300px;
+        border: 1px solid blue;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 10px 10px 20px lightblue;
+        background-color: rgba(18, 51, 96, 0.148);
+      ">
+    <form [formGroup]="loginForm">
+      <div>
+        <h2 style="text-align: center">
+          Login
+          <mat-icon aria-hidden="false" aria-label="Login" fontIcon="login"
+            style="position: relative; padding-top: 4px">
+          </mat-icon>
+        </h2>
+        <br />
+        <mat-form-field>
+          <mat-label>User Id</mat-label>
+          <input id="userid" matInput placeholder="User Id" formControlName="name" name="name" autocomplete="off" />
+          <mat-error>Please provide User Id</mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input id="passwd" matInput type="password" placeholder="Password" formControlName="password" name="password"
+            autocomplete="off" required />
+        </mat-form-field>
+        <!--for toastr  -->
+        <div>
+          <button id="btnLogin" type="button" (click)="Submit()" class="btn btn-primary" [disabled]="!loginForm.valid">
+            Login
+          </button>
+        </div>
+        <br />
+        <div style="text-align: center">
+          Not Registered? &nbsp;<a [routerLink]="['/register']">Register Here</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+/*Sriii*/
+.book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 300px; /* Adjust width as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .gallery {
+    margin-bottom: 10px;
+  }
+  
+  .details {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .actions {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+ 
+  /*Sriii*/

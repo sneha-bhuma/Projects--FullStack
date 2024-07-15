@@ -1,0 +1,5 @@
+npm install
+npm install @angular/material
+npm i angular-star-rating
+npm i css-star-rating
+npm install @canvasjs/angular-charts

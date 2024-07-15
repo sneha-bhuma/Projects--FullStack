@@ -1,0 +1,104 @@
+<app-patientnav></app-patientnav>
+<div class="image-container">
+<form action="" class="form-group container" [formGroup]="appointmentForm">
+    <div class="main">
+      <div class="form-group">
+        <h1>Schedule an Appointment</h1>
+      </div>
+      <div>
+        <label for="patient_id">Patient Id</label>
+        <br />
+        <input type="text" id="patient_id" class="form-control" formControlName="patient_id" [value]="patient_id"/>
+      </div>
+      <div>
+        <label for="patient_name">Patient Name</label>
+        <br />
+        <input type="text" id="patient_name" class="form-control" formControlName="patient_name" [value]="patient_name"/>
+      </div>
+      <div>
+        <label for="speciality" >Speciality</label>
+        <select
+          name="speciality"
+          id="speciality"
+          class="form-select required"
+          required="required"
+          (change)="updateDoctors($event)"
+          formControlName="speciality"
+        >
+          <option value="" selected>Select a Speciality</option>
+          <option *ngFor="let specialty of specialties" [value]="specialty">{{ specialty }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="select-doctor">Doctor</label>
+        <select
+          name="Select Doctor"
+          id="select-doctor"
+          class="form-select required"
+          required="required"
+          formControlName="doctor_id"
+        >
+          <option value="">Select a Doctor</option>
+          <ng-container *ngFor="let doctor of doctors">
+            <option
+              *ngIf="doctor.speciality === selectedSpeciality"
+              [value]="doctor.doctor_id"
+            >
+              {{ doctor.doctor_name }}
+            </option>
+          </ng-container>
+        </select>
+      </div>
+      <div>
+        <label for="appointment-date">Appointment Date</label>
+        <input
+          type="date"
+          id="appointment-date"
+          class="form-date required form-select required"
+          aria-required="true"
+          [min]="today | date : 'yyyy-MM-dd'"
+          [max]="maxDate | date : 'yyyy-MM-dd'"
+          [value]="today | date : 'yyyy-MM-dd'"
+          required
+          formControlName="appointment_date"
+        />
+      </div>
+      <div>
+        <label for="slot" class="form-label">Select Slot</label>
+        <select
+          name="appointmentSlot"
+          id="appointmentSlot"
+          class="form-select required"
+          required
+          formControlName="slot"
+        >
+        <option value="">Select a slot</option>
+        <option value="9:00 AM - 9:30 AM">9:00 AM - 9:30 AM</option>
+        <option value="9:30 AM - 10:00 AM">9:30 AM - 10:00 AM</option>
+        <option value="10:00 AM - 10:30 AM">10:00 AM - 10:30 AM</option>
+        <option value="10:30 AM - 11:00 AM">10:30 AM - 11:00 AM</option>
+        <option value="11:00 AM - 11:30 AM">11:00 AM - 11:30 AM</option>
+        <option value="11:30 AM - 12:00 PM">11:30 AM - 12:00 PM</option>
+        <option value="12:00 PM - 12:30 PM">12:00 PM - 12:30 PM</option>
+        <option value="12:30 PM - 1:00 PM">12:30 PM - 1:00 PM</option>
+        <option value="2:00 PM - 2:30 PM">2:00 PM - 2:30 PM</option>
+        <option value="2:30 PM - 3:00 PM">2:30 PM - 3:00 PM</option>
+        <option value="3:00 PM - 3:30 PM">3:00 PM - 3:30 PM</option>
+        <option value="3:30 PM - 4:00 PM">3:30 PM - 4:00 PM</option>
+        <option value="4:00 PM - 4:30 PM">4:00 PM - 4:30 PM</option>
+        <option value="4:30 PM - 5:00 PM">4:30 PM - 5:00 PM</option>
+        
+        </select>
+      </div>
+      <div>
+          <label for="problem">Problem Description</label>
+          <textarea name="problem" id="problem" placeholder="Enter the problem description" class="form-control"
+          formControlName="problem_description"
+          ></textarea>
+      </div>
+    </div>
+    <div class="d-flex justify-content-cente">
+      <button class="btn btn-primary mb-2" type="submit" (click)="onSubmit()">Submit</button>
+    </div>
+  </form>
+</div>

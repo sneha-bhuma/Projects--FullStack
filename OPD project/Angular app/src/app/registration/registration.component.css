@@ -1,0 +1,158 @@
+form {
+  max-width: 800px;
+  margin: auto;
+  background-color: #ebeaea0c;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* color: #ffffff; */
+  z-index: -1;
+}
+fieldset {
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid #ded7d716;
+}
+legend {
+  font-weight: bold;
+}
+label,
+input,
+select,
+textarea {
+  display: block;
+  margin-bottom: 10px;
+}
+.back-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-button {
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 9px 11px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #1b2564; /* Darker red */
+}
+
+.register-button:hover {
+  background-color: #1b541f; /* Darker green */
+}
+
+.image-container {
+  background-image: url("../../assets/images/Medical_04.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+}
+
+.radio-group label {
+  margin-right: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+h2{
+  text-align: center;
+  font-size: 6vh;
+  padding-top: 1%;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.button-invalid {
+  background-color: red;
+  color: white;
+}
+
+.button-valid {
+  background-color: green;
+  color: white;
+}
+
+#progressbar {
+  counter-reset: step;
+}
+
+#progressbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#progressbar li {
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-size: 11px;
+  width: 20%;
+  float: left;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+}
+
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 24px;
+  height: 24px;
+  line-height: 26px;
+  display: block;
+  font-size: 15px;
+  color: #333;
+  background: white;
+  border-radius: 25px;
+  margin: 0 auto 10px auto;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 4px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  right: 50%;
+  top: 9px;
+  z-index: 1;
+}
+
+
+#progressbar li:first-child:after {
+  content: none;
+}
+
+#progressbar li.active:before, #progressbar li.active:after {
+  background: #ee0979;
+  color: white;
+}

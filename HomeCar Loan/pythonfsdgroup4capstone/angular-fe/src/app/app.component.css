@@ -1,0 +1,13 @@
+.with-background-image {
+    /* background-image: url('../../assets/images/Redmi.jpg'); */
+    background-image: url('../assets/images/OIP\ \(1\).jfif');
+    /* Adjust background properties as needed */
+    background-size: cover; /* Cover the entire element */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    background-position: center; /* Center the background image */
+}
+.container {
+  margin-top: 40px;    
+}
+
+

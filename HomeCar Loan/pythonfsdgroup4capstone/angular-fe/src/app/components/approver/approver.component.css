@@ -1,0 +1,110 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+   
+  table thead {
+    background-color: #83cff3;
+  }
+   
+  table th, table td {
+    border: 1px solid #617ca0;
+    padding: 8px;
+  }
+   
+  table tr:nth-child(even) {
+    background-color: #a5ccf0;
+  }
+   
+  table tr:hover {
+    background-color: #f3ea9b;
+  }
+   
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #190879;
+    color: rgb(241, 241, 211);
+  }
+   
+  input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+   
+  input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+
+  .bg-img {
+    background: linear-gradient(to bottom right, #e5ec76, #e29229); /* Colorful gradient background */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9; /* Slightly reduce opacity for a softer look */
+    min-height: 100vh; /* Ensure the background covers the entire viewport height */
+    /* display: flex; */
+    align-items: center; /* Center the container vertically */
+    justify-content: center; /* Center the container horizontally */
+    background-image: url("../../../assets/images/OIP\ \(1\).jpg");
+  }
+
+  #progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+ 
+#progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+}
+ 
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 24px;
+    height: 24px;
+    line-height: 26px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: white;
+    border-radius: 25px;
+    margin: 0 auto 10px auto;
+}
+ 
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+ 
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+ 
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: #ee0979;
+    color: white;
+}

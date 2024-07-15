@@ -1,0 +1,21 @@
+.block{
+    
+    border: 2px solid rgb(156, 153, 154);
+    margin-left:  400px; 
+    margin-right: 550px;
+    padding: 20px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgb(109, 108, 108);
+    /* background-color: rgb(182, 134, 134); */
+
+    
+}
+
+.bgimg{
+    background-image: url("../../../assets/images/loans.jpg");
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: repeat;
+  }
+

@@ -1,0 +1,89 @@
+<app-docnav></app-docnav>
+&nbsp;
+<div class="image-container">
+<table class="table table-striped table-bordered mt-3" >
+  <thead class="table-secondary">
+    <tr>
+      <th>Patient ID</th>
+      <th>Patient Name</th>
+      <th>Email</th>
+      <th>Mobile No</th>
+      <th>Date of Birth</th>
+      <th> </th>
+      
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let each of patients,let i=index">
+      <td>{{each.patient_id}}</td>
+      <td>{{each.patient_name}}</td>
+      <td>{{each.email}}</td>
+      <td>{{each.phone}}</td> 
+      <td>{{each.dob}}</td> 
+      <!-- <button [routerLink]="['/eachpatregedit', each.patient_id]"> -->
+      <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit" (click)="getPatientById(each.patient_id)">
+      <!-- <mat-icon>edit</mat-icon> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+      </svg>
+  </button>
+  </tr>
+  </tbody>
+</table>
+
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title>Registration edit form</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+                          
+                <mat-form-field appearance="fill">
+                  <mat-label>Patient Name</mat-label>
+                  <input matInput formControlName ="patient_name"  value="{{patlist?.patient_name}}">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName ="email"  value="{{patlist?.email}}" readonly>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Mobile No</mat-label>
+                  <input matInput  formControlName ="phone"  value="{{patlist?.phone}}">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput type="date" formControlName ="dob"  value="{{patlist?.dob}}" >
+                  </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Allergies</mat-label>
+                    <input matInput  formControlName ="allergies"  value="{{patlist?.allergies}}" >
+                  </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Medications</mat-label>
+                    <input matInput  formControlName ="medications"  value="{{patlist?.medications}}" >
+                  </mat-form-field>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-success">Edit</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+

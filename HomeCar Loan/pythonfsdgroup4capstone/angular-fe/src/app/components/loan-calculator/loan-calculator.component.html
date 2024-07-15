@@ -1,0 +1,81 @@
+
+<div class="forflex">
+  <div class="bgimg">
+    <br /><br />
+    <div class="main-container">
+      <div class="input-summary-container" style="width: 800px;">
+        <div class="input-container" style="text-align: center; " >
+          <h1><b><u>EMI Calculator</u></b></h1>
+          <div class="calculator-form">
+            <!-- Input fields for loan amount, interest rate, and loan tenure -->
+            <div>
+              <label for="loanAmount">Loan Amount</label>
+              <input type="number" id="loanAmount" [(ngModel)]="loanAmount" (input)="validateAndCalculateEMI()" min="0"
+                max="20000000" />
+              <input type="range" min="0" max="20000000" [(ngModel)]="loanAmount" (input)="validateAndCalculateEMI()" />
+              <div *ngIf="loanAmount < 0" class="error">Loan amount cannot be negative</div>
+            </div>
+            <br />
+            <div>
+              <label for="interestRate">Interest Rate (%)</label>
+              <input type="number" id="interestRate" step="0.1" [(ngModel)]="interestRate"
+                (input)="validateAndCalculateEMI()" min="0" max="20" />
+              <input type="range" min="0" max="20" step="0.1" [(ngModel)]="interestRate"
+                (input)="validateAndCalculateEMI()" />
+              <div *ngIf="interestRate < 0" class="error">Interest rate cannot be negative</div>
+            </div>
+            <br />
+            <div>
+              <label for="loanTenure">Loan Tenure (Years)</label>
+              <input type="number" id="loanTenure" [(ngModel)]="loanTenure" (input)="validateAndCalculateEMI()" min="0"
+                max="30" />
+              <input type="range" min="0" max="30" [(ngModel)]="loanTenure" (input)="validateAndCalculateEMI()" />
+              <div *ngIf="loanTenure < 0" class="error">Loan tenure cannot be negative</div>
+            </div>
+          </div>
+        </div>
+        &nbsp; &nbsp;
+        <div class="summary-container" style="text-align: center">
+          <h1><u><b>EMI SUMMARY</b></u></h1>
+          <div class="results">
+            <!-- EMI summary fields -->
+            <div class="result-item">
+              <h2>Loan EMI: ₹ {{ emi | number : "1.2-2" }}</h2>
+            </div>
+            <div class="result-item">
+              <h3>Total Interest Payable: ₹ {{ totalInterestPayable | number : "1.2-2" }}</h3>
+            </div>
+            <div class="result-item">
+              <h3>Total Payment (Principal + Interest): ₹ {{ totalPayment | number : "1.2-2" }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="emi-details-container" style="text-align: center">
+        <h1><b><u>Monthly EMI's detail</u></b></h1>
+        <div class="table-responsive">
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>EMI</th>
+                <th>Principal Component</th>
+                <th>Interest</th>
+                <th>Remaining Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detail of emiDetails">
+                <td>{{ detail.month }}</td>
+                <td>{{ detail.emi | number : "1.2-2" }}</td>
+                <td>{{ detail.principalComponent | number : "1.2-2" }}</td>
+                <td>{{ detail.interest | number : "1.2-2" }}</td>
+                <td>{{ detail.remainingBalance | number : "1.2-2" }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

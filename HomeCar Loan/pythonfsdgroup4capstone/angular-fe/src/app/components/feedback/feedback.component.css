@@ -1,0 +1,64 @@
+/* Center the form on the page */
+.bg-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: url('your-background-image.jpg') no-repeat center center/cover; */
+}
+ 
+form {
+  background: rgba(133, 150, 228, 0.315);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+ 
+.rating-container {
+  margin-bottom: 20px;
+}
+ 
+.stars mat-icon {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+ 
+.stars mat-icon.filled {
+  color: gold;
+}
+ 
+.stars mat-icon:hover {
+  color: orange;
+}
+ 
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+ 
+button:hover {
+  background-color: #0056b3;
+}
+ 
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -1,0 +1,37 @@
+<br /><br/><br />
+<div class="bg-img">
+  <div style="height: 500px;">
+    <form (ngSubmit)="submitFeedback()">
+      <div class="rating-container">
+        <label>Email:</label>
+        <input type="email" [(ngModel)]="feedback.email" name="email" required>
+      </div>
+      <div class="rating-container">
+        <label>UI Experience</label>
+        <div class="stars">
+          <mat-icon *ngFor="let star of stars; let i = index" [class.filled]="i < feedback.uiExperience"
+            (click)="rate('uiExperience', i + 1)">star</mat-icon>
+        </div>
+      </div>
+
+      <div class="rating-container">
+        <label>Loan Status Experience</label>
+        <div class="stars">
+          <mat-icon *ngFor="let star of stars; let i = index" [class.filled]="i < feedback.loanStatusExperience"
+            (click)="rate('loanStatusExperience', i + 1)">star</mat-icon>
+        </div>
+      </div>
+
+      <div class="rating-container">
+        <label>Customer Support Experience</label>
+        <div class="stars">
+          <mat-icon *ngFor="let star of stars; let i = index" [class.filled]="i < feedback.customerSupportExperience"
+            (click)="rate('customerSupportExperience', i + 1)">star</mat-icon>
+        </div>
+      </div>
+
+      <button type="submit" mat-raised-button color="primary">Submit</button>
+    </form>
+
+  </div>
+</div>

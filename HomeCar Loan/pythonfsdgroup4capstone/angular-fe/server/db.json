@@ -1,0 +1,34 @@
+{
+  "emps": [
+    {
+      "name": "Poco",
+      "price": 15000,
+      "rating": 4,
+      "image": "../../assets/images/Poco.jpg"
+    },
+    {
+      "name": "Redmi",
+      "price": 13000,
+      "rating": 3,
+      "image": "../../assets/images/Redmi.jpg"
+    },
+    {
+      "name": "Never Settle",
+      "price": 25000,
+      "rating": 5,
+      "image": "../../assets/images/NeverSettle.jpg"
+    },
+    {
+      "name": "OnePlus",
+      "price": 34000,
+      "rating": 3,
+      "image": "../../assets/images/oneplus.jpg"
+    },
+    {
+      "name": "SamsungA50",
+      "price": 19000,
+      "rating": 4.5,
+      "image": "../../assets/images/samsunga50.jpg"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<app-patientnav></app-patientnav>
+<div class="image-container">
+  <h2 class="modal-title">Please provide rating</h2>
+  <div class="modal-body">
+    <div id="starRating">
+      <mat-icon *ngFor="let icon of maxRatingArray; let index=index" (mouseenter)="HandleMouseEnter(index)"
+        (mouseleave)="HandleMouseLeave()" [ngClass]="{checked:selectedstars > index}" (click)="Rating(index)">
+        star
+      </mat-icon>
+    </div>
+    <br>
+    <label for="feedback">Feedback:</label>
+    <br>
+    <textarea id="feedback" [(ngModel)]="feedback.feedback" name="feedback"></textarea>
+    <br>
+    <div class="button-container">
+      <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onCancel()">Cancel</button> -->
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Submit</button>
+    </div>
+  </div>
+</div>
+<br>
+<div>
+  <h2>Patient Feedbacks</h2>
+  <div class="feedbackHistory" *ngFor="let fedback of feedbackHistory">
+    <p> <b>Patient Name :</b> {{fedback.patient_name}} </p>
+    <p> <b>Rating :</b> {{fedback.rating }} </p>
+    <p> <b>Feedback : </b>{{fedback.feedback }} </p>
+  </div>
+</div>

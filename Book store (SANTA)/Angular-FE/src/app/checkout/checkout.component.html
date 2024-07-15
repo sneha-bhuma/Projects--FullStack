@@ -1,0 +1,79 @@
+<p>checkout works!</p>
+<!-- <p>checkout works!</p>
+<div *ngIf="sales && sales.length > 0">
+    <h2>Sales List</h2>
+    <ul>
+      <li *ngFor="let sale of sales">
+        <strong>Sale ID:</strong> {{ sale._id }}<br>
+        <strong>Total Price:</strong> {{ sale.total_price }}<br>
+        <strong>No. of Books:</strong> {{ sale.no_of_books }}<br>
+        <strong>Email:</strong> {{ sale.email }}<br>
+        <h4>Books:</h4>
+      <ul>
+        <li *ngFor="let book of sale.books">
+          <h5>{{ book.title }}</h5>
+          <p><strong>Author:</strong> {{ book.author }}</p>
+          <p><strong>Category:</strong> {{ book.category }}</p>
+          <p><strong>Price:</strong> {{ book.price }}</p>
+          <p><strong>Synopsis:</strong> {{ book.synopsis }}</p>
+        </li>
+      </ul>
+      </li>
+    </ul>
+  </div> -->
+
+
+  <div id="maindiv" class="container" style="
+      margin: auto;
+      margin-top: 100px;
+      width: 800px;
+      border: 1px solid blue;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 10px 10px 20px lightblue;
+      background-color: rgba(191, 211, 239, 0.148);
+  ">
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <h2>Shipping Information</h2>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name">
+    </div>
+    <div>
+        <label for="email">email:</label>
+        <input id="email" formControlName="email">
+      </div>
+    <div>
+      <label for="address">Address:</label>
+      <input id="address" formControlName="address">
+    </div>
+    <div>
+      <label for="city">City:</label>
+      <input id="city" formControlName="city">
+    </div>
+    <div>
+      <label for="zip">Zip Code:</label>
+      <input id="zip" formControlName="zip">
+    </div>
+ 
+    <h2>Payment Information</h2>
+    <div>
+      <label for="cardNumber">Card Number:</label>
+      <input id="cardNumber" formControlName="cardNumber">
+    </div>
+    <div>
+      <label for="expiryDate">Expiry Date:</label>
+      <input id="expiryDate" formControlName="expiryDate">
+    </div>
+    <div>
+      <label for="cvv">CVV:</label>
+      <input id="cvv" formControlName="cvv">
+    </div>
+ 
+    <button  type="submit">Order Now</button>
+    <!-- <button type="button" class="btn btn-success"  *ngIf="status==1"><a href="\" style="color:white;">Go To Homepage</a></button> -->
+  </form>
+
+</div>
+
+ 

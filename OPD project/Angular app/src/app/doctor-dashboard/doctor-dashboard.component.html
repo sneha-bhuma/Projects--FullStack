@@ -1,0 +1,64 @@
+<app-docnav></app-docnav>
+
+<div style="background-color: lightgray;">
+  &nbsp;
+  <div class="appointment-actions form-group">
+    <div class="row">
+
+
+      <div class="col-md-5">
+        <mat-form-field appearance="outline" style="width:400px;">
+          <mat-label>Select Doctor</mat-label>
+          <mat-select [(value)]="selected">
+            <mat-option *ngFor="let doctor of doctors" [value]="doctor.doctor_id">{{ doctor.doctor_name }}</mat-option>
+          </mat-select>
+        </mat-form-field>&nbsp;
+        <button class="btn btn-primary search-button" (click)="applyFilters()" style="width:50px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="col-md-5">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Appointments" [(ngModel)]="searchTerm">
+          <button class="btn btn-primary" (click)="search()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+              viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped table-bordered mt-3" *ngIf="filteredAppointments.length > 0">
+      <thead class="table-dark">
+        <tr>
+          <th>SL no</th>
+          <th>Patient Name</th>
+          <th>Doctor Name</th>
+          <th>Purpose of Appointment</th>
+          <th>Appointment Date</th>
+          <th>Appointment Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of filteredAppointments; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ patname[appointment.patient_id] }}</td>
+          <td>{{ docname[appointment.doctor_id] }}</td>
+          <td>{{ appointment.problem_description }}</td>
+          <td>{{ appointment.appointment_date }}</td>
+          <td>{{ appointment.slot }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="text-center text-danger" *ngIf="filteredAppointments.length === 0 && !start">No appointments found.</p>
+  </div>
+</div>

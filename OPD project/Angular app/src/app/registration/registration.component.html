@@ -1,0 +1,108 @@
+<div class="image-container">
+  <h2>Patient Registration Form</h2>
+  <form [formGroup]="registrationForm" class="form-group">
+    <ul id="progressbar">
+      <li [class.active]="currentPage >= 1">Personal Information</li>
+      <li [class.active]="currentPage >= 2">Contact Information</li>
+      <li [class.active]="currentPage >= 3">Medical Information</li>
+      <li [class.active]="currentPage >= 4">Address</li>
+      <li [class.active]="currentPage >= 5">Emergency Contact</li>
+    </ul>
+    <fieldset *ngIf="currentPage === 1">
+      <!-- <legend>Personal Information</legend> -->
+      <label for="patient_name">Name</label>
+      <input class="form-control" type="text" id="patient_name" name="patient_name" formControlName="patient_name"
+        required>
+
+      <label for="dob">Date of Birth</label>
+      <input class="form-control" type="date" id="dob" name="dob" required formControlName="dob" [max]="maxDate | date : 'yyyy-MM-dd'">
+
+      <label for="sex">Sex</label>
+      <select id="sex" name="sex" required formControlName="sex" class="form-select required">
+        <option value="" disabled selected>Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="height">Height (Cm)</label>
+      <input class="form-control" type="text" id="height" name="height" required formControlName="height"
+        placeholder="Cm">
+
+      <label for="weight">Weight (KG)</label>
+      <input class="form-control" type="text" id="weight" name="weight" required formControlName="weight"
+        placeholder="KG">
+
+      <label for="marital-status">Marital Status</label>
+      <select id="marital-status" name="marital-status" required formControlName="maritalStatus"
+        class="form-select required">
+        <option value="" disabled selected>Select</option>
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+        <option value="divorced">Divorced</option>
+        <option value="widowed">Widowed</option>
+      </select>
+    </fieldset>
+
+    <fieldset *ngIf="currentPage === 2">
+      <!-- <legend>Contact Information</legend> -->
+      <label for="phone">Phone Number</label>
+      <input class="form-control" type="tel" id="phone" name="phone" required formControlName="phone">
+
+      <label for="email">Email</label>
+      <input class="form-control" type="email" id="email" name="email" required formControlName="email">
+    </fieldset>
+
+    <fieldset *ngIf="currentPage === 3">
+      <!-- <legend>Medical Information</legend> -->
+      <label for="allergies">Allergies (if any)</label>
+      <input class="form-control" type="text" id="allergies" name="allergies" formControlName="allergies">
+
+      <div class="radio-group">
+        <label>Are you currently taking any medications?</label>
+        <input type="radio" id="med-yes" name="medications" value="yes" formControlName="medications">
+        <label for="med-yes">Yes</label>
+        <input type="radio" id="med-no" name="medications" value="no" formControlName="medications">
+        <label for="med-no">No</label>
+      </div>
+    </fieldset>
+
+    <fieldset *ngIf="currentPage === 4">
+      <!-- <legend>Address</legend> -->
+      <label for="address1">Address Line 1</label>
+      <input class="form-control" type="text" id="address1" name="address1" required formControlName="address1">
+
+      <label for="address2">Address Line 2</label>
+      <input class="form-control" type="text" id="address2" name="address2" formControlName="address2">
+
+      <label for="city">City</label>
+      <input class="form-control" type="text" id="city" name="city" required formControlName="city">
+
+      <label for="state">State</label>
+      <input class="form-control" type="text" id="state" name="state" required formControlName="state">
+
+      <label for="zipcode">Zip Code</label>
+      <input class="form-control" type="text" id="zipcode" name="zipcode" required formControlName="zipcode">
+    </fieldset>
+
+    <fieldset *ngIf="currentPage === 5">
+      <!-- <legend>Emergency Contact</legend> -->
+      <label for="emg_contact_name">Emergency Contact Name</label>
+      <input class="form-control" type="text" id="emg_contact_name" name="emg_contact_name" required
+        formControlName="emg_contact_name">
+
+      <label for="emg_contact_phone">Emergency Contact Phone</label>
+      <input class="form-control" type="tel" id="emg_contact_phone" name="emg_contact_phone" required
+        formControlName="emg_contact_phone">
+    </fieldset>
+    <div style="display: flex; gap: 10px;">
+      <button class="form-control button-valid" (click)="prevPage()" *ngIf="currentPage > 1">Previous</button>
+      <button class="form-control .next-button" (click)="nextPage()" *ngIf="currentPage < 5"
+        [disabled]="!isCurrentPageValid()"
+        [ngClass]="{'button-valid': isCurrentPageValid(), 'button-invalid': !isCurrentPageValid()}">Next</button>
+      <button class="form-control" type="submit" routerLink="/book-appointment"
+        [disabled]="!isCurrentPageValid()" (click)="onSubmit()" *ngIf="currentPage === 5"
+        [ngClass]="{'button-valid': isCurrentPageValid(), 'button-invalid': !isCurrentPageValid()}">Register</button>
+    </div>
+  </form>
+</div>

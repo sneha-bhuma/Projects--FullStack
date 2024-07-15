@@ -1,0 +1,3 @@
+FLASK_APP=salesInfo
+
+FLASK_DEBUG=True

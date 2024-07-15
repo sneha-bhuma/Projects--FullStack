@@ -1,0 +1,94 @@
+.container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-image: url("../../assets/images/Medical_01.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #000000;
+  z-index: -1;
+  /* width: 100vw;
+  margin: 0; */
+}
+
+header {
+  background-color: rgba(248, 249, 250, 0);
+  border-bottom: 1px solid #1b1b1b00;
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+}
+
+h1 {
+  margin: 10px 0;
+  color: #000000;
+  font-family: "Aldhabi";
+  font-weight: bold;
+  font-size: 4em;
+  /* letter-spacing: 1px; */
+}
+h2 {
+  margin: 10px 0;
+  color: #000000;
+  font-family: "Aldhabi";
+  font-weight: bold;
+  font-size: 2em;
+  /* letter-spacing: 1px; */
+}
+
+.profile {
+  margin: 20px 0;
+}
+
+.contact-info {
+  margin: 20px 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.contact-info h2 {
+  color: #030303;
+}
+
+footer {
+  background-color: rgba(210, 208, 208, 0.527);
+  padding: 10px;
+  border-top: 1px solid #5a5959b8;
+  margin-top: 20px;
+}
+
+.next-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+}
+
+.doctor-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.doctor-profile {
+  flex: 1;
+  text-align: center;
+  margin: 10px;
+}
+
+.doctor-profile img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+a{
+  color: rgb(235, 235, 177);
+}
