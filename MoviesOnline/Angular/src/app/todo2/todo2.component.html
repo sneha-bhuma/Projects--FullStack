@@ -1,0 +1,51 @@
+
+<div style="display: flex; font-size: x-large">
+    <span class="spacer"> </span>
+    <span style="width: 370px"
+      >{{ username }}'s ToDo List Items
+      <span
+        class="position-relative top-0 start-0 translate-middle p-1 badge rounded-pill bg-danger"
+        >{{ itemCount }}</span
+      ></span
+    >
+    <span class="spacer"></span>
+  </div>
+  
+  <div class="inputContainer">
+    <div class="form-group" style="display: flex">
+      <label style="padding-left: 5px; padding-right: 5px">New ToDo</label>
+      <input  placeholder="Enter to-do description"  #todoText  class="form-control" />
+      <button  class="btn btn-primary" style="margin-left: 10px" (click)="addItem(todoText.value); todoText.value = ''  "> Add </button>
+    </div>
+  </div>
+  
+  <div class="tableContainer">
+    <table class="table fullWidth">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Task</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.task }}</td>
+          <td>
+            <input type="checkbox" [(ngModel)]="item.complete" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="toggleContainer">
+    <span class="spacer"></span>
+    <label>
+      <input type="checkbox" [(ngModel)]="showComplete" /> Show Completed Items 
+   </label>
+   
+    <span class="spacer"></span>
+  </div>
+  

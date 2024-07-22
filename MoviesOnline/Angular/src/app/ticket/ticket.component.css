@@ -1,0 +1,52 @@
+/* ticket.component.css */
+.ticket {
+    width: 300px;
+    height: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    background-color: #ece7e7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1.5);
+  }
+ 
+  .ticket-header {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+ 
+  .ticket-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  .ticket-info {
+    flex: 1;
+  }
+ 
+  .ticket-field {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+  .ticket-label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+ 
+  .ticket-barcode {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+ 
+  .ticket-value {
+    color: #333;
+  }
+ 
+  .ticket-barcode img {
+    max-width: 100px;
+    max-height: 100px;
+  }

@@ -1,0 +1,25 @@
+<p>search works!</p>
+
+<div class="container">
+    <form action="">
+        <label for="min">Minimun price</label>
+        <input type="number" [(ngModel)]="minPrice" name="minPrice">
+
+        <label for="max">Maximum price</label>
+        <input type="number" [(ngModel)]="maxPrice" name="maxPrice"><br>
+
+        <button type="button" (click)="filteredBookFn()">Apply Filter</button>
+        <button type="button" (click)="reset()">Reset</button>
+    </form>
+
+    <div *ngIf="err">
+        {{err}}
+    </div>
+
+    <ul *ngIf="filteredBooks.length >0">
+        <li *ngFor="let x of filteredBooks ">
+            {{x.author}}
+        </li>
+    </ul>
+
+</div>

@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+  }
+   
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../../assets/images/display2.jpg") center/cover no-repeat, #000;
+  }
+   
+  .wrapper {
+    width: 680px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+   
+  .container {
+    animation: fadeIn 2s ease-in-out;
+  }
+   
+  .animated-form {
+    animation: slideIn 1.5s ease-out;
+  }
+   
+  .animated-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    animation: bounceIn 1s ease;
+  }
+   
+  .input-field {
+    margin-bottom: 10%;
+    /* width: 170px; */
+    padding-left: -120px;
+  }
+   
+  .input-field mat-error {
+    color: rgb(240, 28, 28);
+  }
+   
+  .input-field mat-form-field {
+    height: 70px;
+  }
+   
+  .input-field input,
+  .input-field textarea {
+    color: black;
+    height: 18px;
+  }
+   
+  .animated-button {
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+    animation: pulse 1s infinite;
+  }
+   
+  .animated-button:hover {
+    color: #fff;
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+  }
+   
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+   
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+   
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+   
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

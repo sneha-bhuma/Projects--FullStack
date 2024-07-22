@@ -1,0 +1,56 @@
+/* Set the default color for all navbar links */
+.navbar .nav-link {
+    color: black !important;
+}
+
+/* Override the color for the cart icon link */
+.navbar .nav-link.cart-link {
+    color: rgb(126, 17, 17) !important;
+}
+
+/* Style for the navbar buttons */
+.navbar button {
+    color: black !important;
+    border: none;
+    background: none;
+    margin-right: 10px; /* Add spacing */
+}
+
+/* Align the cart count badge correctly */
+.position-absolute {
+    transform: translate(50%, -50%);
+}
+
+/* Ensure the navbar items are aligned properly */
+.navbar .navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Add spacing */
+}
+
+/* Adjust the position of the shopping cart icon */
+.mat-icon {
+    vertical-align: middle;
+    font-size: 24px;
+}
+
+/* Style for the wishlist button */
+.navbar .wishlist-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: black !important;
+    border: none;
+    background: none;
+    margin-right: 20px; /* Add spacing */
+    margin-left: 20px;
+}
+
+/* Style for the logout button */
+.navbar .logout-button {
+    color: black !important;
+    border: none;
+    background: none;
+    margin-right: 20px; /* Add spacing */
+    margin-left: 20px;
+}

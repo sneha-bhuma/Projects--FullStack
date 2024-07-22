@@ -1,0 +1,13 @@
+
+<p>parent works!</p>
+<div style="margin-left: 100px;background-color: lightblue;">
+    <h1>Parent works</h1>
+    <h3>
+        Message from child will appear here : <b>{{msg2}}</b>
+    </h3>
+
+    <h5>Sending data to child</h5>
+    <app-child [pmsg]="msg" (notify)="getMessage($event)"> </app-child>
+    
+</div>
+

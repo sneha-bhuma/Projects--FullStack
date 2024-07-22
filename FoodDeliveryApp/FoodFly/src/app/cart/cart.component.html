@@ -1,0 +1,234 @@
+<!-- app.component.html -->
+<!-- app.component.html -->
+<!-- <app-prod-details (addToCartClicked)="updateItemCount()"></app-prod-details> -->
+ 
+<!-- {{itemCount}} -->
+ 
+<!-- Poojitha Atreyo made changes to display in cart add,remove one item,remove all,increase quantity, total price, total order -->
+
+<div class="box2">
+  <button [routerLink]="['/foods']" 
+    style="
+    margin-left: 10px; margin-right: 10px; margin-top: 8px;
+    border: 1px solid #790c0c;
+    background-color: #d49a4d;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;" >
+    Go back to food items
+  </button>
+</div>
+ 
+<div class="box1" style="margin-left: 1020px; margin-right: 10px; margin-top: -15px;
+border-radius: 4px;">
+  <button mat-icon-button (click)="removeAllCart()" style="color: brown;">
+    <mat-icon>delete_sweep</mat-icon>
+  </button>
+  <span style="margin-left: 5px;">Delete All</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Lakshmi added below code for Feedback -->
+  <br>
+  <button style="margin-left: 1030px;
+     margin-right: 10px; margin-top: -5px;
+    border: 1px solid #790c0c;
+    background-color: #d49a4d;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;"
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#feedbackPopup"
+  >
+    Rate us..
+  </button>
+  <!-------------------------------------------------------------------------------------------->
+  <div>
+  <!-- lakshmi added from next 2 lines for displaying the food orders in a row -->
+  <div class="row">
+  <div class="card col-3 p-5" *ngFor="let prod of uniquecart">  
+  <div class="card" style="width: 200px">
+  
+  <div class="gallery"> <img
+                  *ngIf="prod.image"
+                  class="card-img-top"
+                  [src]="prod.image"
+                  [width]="200"
+                  [height]="200"
+                  alt="Card image"
+                />
+  </div>
+  <div class="card-body" row="">
+  <h3  style="color: brown;" class="card-title">{{ prod.name }}</h3>
+  <!-- <p class="card-text">LAPTOP</p> -->
+  <!-- <a [title]="prod.name + ' details'" [routerLink]="['/prod', prod.id]">
+                    {{ prod.name }}
+  </a> -->
+  <!-- Atreyo made the change for price for the item and quantity of the item -->
+  <p class="card-text">
+                    Price {{ prod.price | currency : "INR" : "symbol" }}
+  </p> 
+  <div>
+                    {{ prod.name }} - {{ prod.price }} x {{ prod.quantity }}
+  <br /> <br />
+  <button (click)="decreaseQuantity(prod)">-</button>
+  
+  <span>{{ prod.quantity }}</span>
+
+  <button (click)="addToCart(prod)">+</button>
+  </div>
+   
+                  
+   
+
+   
+  </div>
+  <button mat-icon-button style="color: red;"  class="btn btn-primary"   (click)="removeCart(prod)">
+  <mat-icon>delete</mat-icon>
+  </button>  
+  </div>
+  </div>
+  </div>
+  
+  <ng-container *ngIf="( countcart ) == 0">
+  <h3> No Items available in Cart</h3>
+  </ng-container>
+  
+  <br>
+  <div  *ngIf="(countcart) >= 1">
+  <button
+      type="button"
+      style="margin-left: 10px;
+     margin-top: 40px;
+    border: 1px solid #790c0c;
+    background-color: #d49a4d;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;"
+      data-bs-toggle="modal"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      data-bs-target="#orderPopup">
+      proceed to OrderSummary
+    </button>
+  </div>
+
+
+  
+
+  <button type="button" style="margin-left: 10px;
+  margin-right: 10px; margin-top: 20px;
+ border: 1px solid #790c0c;
+ background-color: #d49a4d;
+ box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+ border-radius: 4px;"
+  data-bs-dismiss="modal"  data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf="(countcart) >= 1">Pay</button>
+             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+               <div class="modal-content">
+               <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                         Order Placed Successfully &#10004; , please give rating!!
+               </div>
+               </div>
+               </div>
+               </div>
+  
+  
+   
+  <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Proceed to Pay</button> -->
+  
+  
+  
+   
+ 
+   
+  <!-- Lakshmi added popup for Rating ----------------------------------------------------->
+  <div class="modal fade" id="feedbackPopup" tabindex="-1" aria-labelledby="feedbackPopupLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 style="color: rgb(6, 6, 6)" class="modal-title" id="feedbackPopupLabel">Please provide rating</h4>
+        </div>
+        <div class="modal-body">
+          
+          <div id="starRating" class="largediv">
+            <mat-icon *ngFor="let icon of maxRatingArray; let index=index"
+                      class="increase"
+                      (mouseenter)="HandleMouseEnter(index)"
+                      (mouseleave)="HandleMouseLeave()"
+                      [ngClass]="{ checked: selectedstars > index }"
+                      (click)="Rating(index)">
+              star
+            </mat-icon>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onCancel()">Cancel</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- ========lakshmi       ============ -->
+ 
+<div
+      class="modal fade"
+      id="orderPopup"
+      tabindex="-1"
+      aria-labelledby="orderPopupLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 style="color:rgb(6, 6, 6)" class="modal-title" id="orderPopupLabel">Order Summary</h2>
+           
+          </div>
+          <div style="color:black" class="modal-body">
+            <h4>Total items in Cart : {{totalQuantity}}</h4>
+            <h4>Total Price is      : {{ calculateTotalPrice() | currency : "INR" : "symbol" }}</h4>
+            <h4>Delivery Fee        : {{ delivery_fee | currency : "INR" : "symbol" }}</h4>
+            <h4>Platform Fee        : {{ platform_fee | currency : "INR" : "symbol" }}</h4>
+            <h4>GST Charges         : {{ GST | currency : "INR" : "symbol" }}</h4>
+            <h2>Total amount to Pay :  {{ totalbill | currency : "INR" : "symbol" }}</h2>
+           
+          </div>
+          <div class="modal-footer">
+           <button type="button" data-bs-dismiss="modal" class="btn btn-primary"
+             (click)="addFav()">Submit</button>
+            
+             
+
+            
+            
+             <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              (click)="onCancel()"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+
+  

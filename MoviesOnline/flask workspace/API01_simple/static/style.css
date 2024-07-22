@@ -1,0 +1,84 @@
+.feedback-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .feedback-form h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .feedback-form p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border fit within the width */
+  }
+  
+  .form-group textarea {
+    height: 120px;
+  }
+  
+  .starability-basic {
+    display: flex;
+    align-items: center;
+  }
+  
+  .starability-basic input[type="radio"] {
+    display: none;
+  }
+  
+  .starability-basic label {
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .starability-basic label::before {
+    content: '\2605'; /* Unicode character for star symbol */
+    font-size: 24px;
+    color: #ccc; /* Default star color */
+  }
+  
+  .starability-basic input[type="radio"]:checked ~ label::before {
+    color: orange; /* Color for selected stars */
+  }
+  
+  .form-group button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-group button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,85 @@
+
+<body>    
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci similique voluptate blanditiis fugit nemo quidem ex magnam impedit sequi unde porro perferendis asperiores quam labore, quo, consectetur molestias libero excepturi.</p>
+<p>hello works! here xxx {{name}} </p>
+
+<!-- <h2 *ngIf="salary">salarys is {{salary }}</h2> -->
+@if (salary>20) {
+    <h4 class="text-success"> salary more than 1000</h4>
+}@else {
+<h4 [ngClass]="classname">in red</h4>
+}
+
+<h3 *ngIf="salary > 0">Salary - {{ salary | currency : "INR" }}</h3>
+
+
+<div>
+    Your salary after increment is {{getIncrement()}}
+</div>
+
+@switch (weekDay) { 
+    @case ("Sun"){
+    <h3>Enjoy! It's Sunday</h3>
+    } @case ("Sat"){
+    <h3>Enjoy! It's Saturday</h3>
+    } @case ("Mon"){
+    <h3>Back to work</h3>
+    }
+}
+
+    
+<input type="text"   [(ngModel)] = "company">
+<h4>{{company}}</h4>
+
+ 
+<button (click)="onclick()" [disabled]="isDisabled"> Check</button>
+
+Message is :  {{message1}}
+
+<ul *ngFor="let x of fname">
+    <li>{{x}}</li>
+</ul>
+
+
+<ul>
+    @for (item of fname; track $index) {
+        <li>{{$index + 1}}  {{item}}</li>
+    }
+</ul>
+
+
+<table class="table table-success ">
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Sex</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+
+    </tr>
+</tbody>
+  </table>
+
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit quas, laborum rerum iste omnis autem similique facere nihil nam aperiam nemo, sequi inventore. Non aut est, assumenda laboriosam distinctio eum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, fugiat libero illo praesentium eligendi at perspiciatis voluptatem vitae reprehenderit! Rerum vel nemo quas amet quibusdam cum praesentium sed dolorum ad.</p>
+
+</body>

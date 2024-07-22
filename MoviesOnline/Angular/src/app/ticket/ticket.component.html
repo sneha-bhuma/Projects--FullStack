@@ -1,0 +1,62 @@
+<div class="ticket">
+    <div class="ticket-header">
+      <h2 style="color: brown;">Ticket Details</h2>
+    </div>
+    <div class="ticket-body">
+      <div class="ticket-info">
+ 
+        <div class="ticket-field">
+          <span class="ticket-label">Movie:</span>
+          <span class="ticket-value">{{ name }}</span>
+        </div>
+ 
+        <div class="ticket-field">
+            <span class="ticket-label">Theatre </span>
+            <span class="ticket-value">{{theater }}</span>
+          </div>
+ 
+        <div class="ticket-field">
+          <span class="ticket-label">Date </span>
+          <span class="ticket-value">{{ date | date : "dd/MM/yyyy" }}</span>
+        </div>
+ 
+        <div class="ticket-field">
+          <span class="ticket-label">Time </span>
+          <span class="ticket-value">{{time}}</span>
+        </div>
+ 
+ 
+        <div class="ticket-field">
+          <span class="ticket-label">Tickets Booked:</span>
+          <span class="ticket-value">{{ noTickets }}</span>
+        </div>
+ 
+       
+        <div class="ticket-field">
+            <span class="ticket-label">TotalAmount:</span>
+            <!-- <span class="ticket-value">{{totalPrice}}</span> -->
+            <span class="ticket-value">{{ totalPrice | currency: 'INR' }}</span>
+          </div>
+ 
+        <br><br><br>
+        <div class="ticket-field">
+            <button mat-raised-button color="primary" (click)="downloadTicketPdf()">Download Ticket</button>
+          </div>
+      </div>
+     
+    </div>
+  </div> 
+  <div class="feedback-link">
+    <p>Thank you for using our service! We would appreciate your feedback.</p>
+     <a href="http://127.0.0.1:5000/feedback" target="_blank">Click here to provide feedback</a>
+  </div>
+  
+  <!-- JavaScript function for downloading ticket PDF -->
+  <script>
+    function downloadTicketPdf() {
+      // Implement your download logic here
+      alert('Downloading ticket PDF...');
+    }
+  </script>
+
+ 

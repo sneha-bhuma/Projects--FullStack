@@ -1,0 +1,21 @@
+.alert {
+    color: red;
+    text-align: center;
+    font-size: xx-large;
+  }
+
+
+  .uppercase-text {
+    text-transform: uppercase;
+    /* Add additional styling here if needed */
+  }
+  
+  .welcome-text {
+    font-size: 28px; /* Adjust the font size as needed */
+    /* Add additional styles for the welcome text */
+  }
+  
+  p {
+    margin-bottom: 10px; /* Example margin for paragraph */
+  }
+  

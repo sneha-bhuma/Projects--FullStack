@@ -1,0 +1,62 @@
+<body style="background-color: #f0f0f0;">
+
+  <div class="container mt-4">
+
+    <div class="card" style="max-width: 400px; margin: auto;">
+      <img *ngIf="incomingArticleObject?.image" class="card-img-top" [src]="incomingArticleObject?.image" [alt]="incomingArticleObject?.name">
+      <div class="card-body">
+        <h3 class="card-title">Name: {{ incomingArticleObject.name }}</h3>
+
+        <div class="form-group">
+          <label for="tkt" style="color: blue;">No of tickets :</label>
+          <mat-form-field>
+            <input matInput type="number" id="tkt" placeholder="Number of tickets" [(ngModel)]="numberOfTickets" (input)="calculateTotal()" class="form-control">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <label for="date" style="color: blue;">Choose date :</label>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Select a date" id="date" [(ngModel)]="selectedDate" class="form-control">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <label for="th" style="color: blue;">Choose time :</label>
+          <mat-form-field>
+            <mat-label>Select Time</mat-label>
+            <mat-select [formControl]="timeControl" class="form-control">
+              <mat-option *ngFor="let time of timeval" [value]="time">
+                {{ time }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <label for="th" style="color: blue;">Choose theatre :</label>
+          <mat-form-field>
+            <mat-label>Select a Theater</mat-label>
+            <mat-select [formControl]="theaterControl" class="form-control">
+              <mat-option *ngFor="let theater of theaters" [value]="theater">
+                {{ theater }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <p>Total Amount: {{ calculateTotal() | currency : "INR" : "symbol" : "1.2-2" }}</p>
+        </div>
+
+        <div class="form-group text-center">
+          <button type="button" class="btn btn-primary" (click)="onSubmit()">Proceed to Pay</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>

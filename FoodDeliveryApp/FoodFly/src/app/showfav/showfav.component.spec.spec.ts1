@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ShowfavComponent } from './showfav.component';
+
+describe('ShowfavComponent', () => {
+  let component: ShowfavComponent;
+  let fixture: ComponentFixture<ShowfavComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ShowfavComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(ShowfavComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

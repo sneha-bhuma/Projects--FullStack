@@ -1,0 +1,160 @@
+<!-- <p>movie works!</p> -->
+
+<body style="background-color: #f0f0f0;">
+  
+
+<div class="container" >
+
+  <div class="filter-container">
+    <input type="text" placeholder="Search by name" [(ngModel)]="searchTerm" (input)="applyFilter()">
+    <button (click)="clearFilter()">Clear</button>
+  </div> <br>
+
+
+    @if (err){
+        <div class="alert alert-danger">
+          {{ err }}
+        </div>
+        
+  
+      } @else {
+
+<!-- 
+        <div >
+       
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#add">
+            Add Movie
+          </button> &nbsp;
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#upd">
+            Update Movie
+          </button>&nbsp;
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#del">
+            Delete Movie
+          </button>&nbsp;  
+
+            <input class="mb-3" type="text"   placeholder="Search movie " style="border-color: blue;"> &nbsp;<input type="button" value="Search">
+        
+        </div>
+        
+          <p></p>
+
+       
+          <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add Movie Here</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+                    <label for="id">Movie ID</label>
+                      <input type="text" id="id"  class="form-control" formControlName ="id" required >
+
+                      <label for="name">Movie Name</label>
+                      <input type="text" id="name"  class="form-control" formControlName ="name" required >
+
+                      <label for="rat">Rating</label>
+                      <input type="text" id="rat"  class="form-control" required formControlName ="rating" >
+
+                      <label for="desc">Description</label>
+                      <input type="text" id="desc"  class="form-control" required  formControlName ="desc">
+
+                      <label for="img">Image</label>
+                      <input type="text" id="img"  class="form-control" required formControlName ="image">
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal" [disabled]="!profileForm.valid">Save changes</button>
+                      </div>
+                  </form>
+
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal fade" id="upd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Update Movie Here</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                  <label for="id">Movie Name</label>
+                  <input type="number" id="id"  class="form-control" required >
+
+                  <label for="rat">Rating</label>
+                  <input type="number" id="rat"  class="form-control" required >
+
+
+                  <label for="desc">Description</label>
+                  <input type="number" id="desc"  class="form-control" required >
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal fade" id="del" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Movie Here</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                  <label for="id">Movie Name</label>
+                  <input type="number" id="id"  class="form-control" required >
+
+                  <label for="rat">Rating</label>
+                  <input type="number" id="rat"  class="form-control" required >
+
+
+                  <label for="desc">Description</label>
+                  <input type="number" id="desc"  class="form-control" required >
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+           -->
+
+        <div class="row"  *ngIf="(loggedin$ | async) == 0">
+          <div class="card col-3 p-5" *ngFor="let e of movie">
+            <app-movie-header [mdet]="e"> </app-movie-header>
+          </div>
+        </div>      
+        
+        
+        <div class="row"  *ngIf="(loggedin$ | async) == 1">
+          <div class="card col-3 p-5" *ngFor="let e of movie">
+            <app-movie-details [mdet]="e"> </app-movie-details>
+          </div>
+        </div> 
+
+      }
+
+</div>
+</body>

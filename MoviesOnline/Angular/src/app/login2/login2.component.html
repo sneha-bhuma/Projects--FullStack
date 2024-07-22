@@ -1,0 +1,32 @@
+ 
+
+<div id="maindiv" class="container"  [ngStyle]="{ 'border-color': loginForm.valid ? 'blue' : 'green' }" 
+  style="margin: auto;width: 400px;border: 1px solid green;border-radius: 10px;padding: 20px;box-shadow: 20px 20px 30px lightblue;
+  background-color: rgba(191, 211, 239, 0.148);height: 400px;">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit1()" autocomplete="off">
+        <div style="line-height: 200px; vertical-align: middle">
+            <h2> Log In
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login" style="position: relative; padding-top: 4px" ></mat-icon>
+            </h2>
+        </div>
+
+        <mat-form-field>
+            <mat-label>User Id</mat-label>
+            <input matInput placeholder="User Id" formControlName="userid" name="userid" autocomplete="off" />
+            <mat-error> Please provide User Id </mat-error>
+        </mat-form-field>
+        
+        <br/>
+        
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password" formControlName="passwd" name="passwd" autocomplete="off" />
+            <mat-error> Please provide Password </mat-error>
+        </mat-form-field>
+        
+        <br/>
+        <button mat-raised-button color="primary" [disabled]="!loginForm.valid"> Login </button>
+    </form>
+  
+</div>

@@ -1,0 +1,33 @@
+ 
+<mat-card class="example-form" >
+   
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()"  >       
+       
+        <br><br>
+        <mat-card-title>
+           Login <mat-icon>login</mat-icon>
+        </mat-card-title><br><br>
+
+        <mat-form-field appearance="outline">               
+            <input matInput placeholder="username" formControlName="firstName"  name="username" > 
+            <mat-error> pls provide user id</mat-error>              
+            </mat-form-field> <p></p>
+
+        <mat-form-field appearance="outline">               
+            <input matInput placeholder="password" formControlName="lastName" name="pass">   
+            <mat-error> pls provide pass</mat-error>             
+        </mat-form-field>     
+
+        <!-- <p>Complete the form to enable button.</p> --> <p></p>
+        <button mat-raised-button color="primary"  [disabled]="!profileForm.valid"> Login</button>
+
+        <h2 style="color:blue;"> {{ notify }}</h2>
+   
+    </form>
+</mat-card> 
+
+
+ 
+ 
+ 
+ 

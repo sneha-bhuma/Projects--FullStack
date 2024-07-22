@@ -1,0 +1,34 @@
+main {
+    background-color: rgb(233, 216, 195);
+}
+ 
+ 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: chocolate; /* Change this to the desired color */
+    background-size: 100%, 100%;
+    background-image: none;
+}
+ 
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+    content: '‹'; /* Unicode character for left arrow */
+    font-size: 30px;
+    color: white; /* Change this to the desired color */
+    
+}
+ 
+.carousel-control-next-icon::after {
+    content: '›'; /* Unicode character for right arrow */
+    
+}
+ 
+/* .carousel-inner>.item>img {
+    width: 1000px;
+    height: 50px;
+ 
+  }
+  .carousel {
+    width: 1000px;
+    height: 200px;
+  } */

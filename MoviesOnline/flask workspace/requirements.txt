@@ -1,0 +1,7 @@
+flask
+flask-smorest
+python-dotenv
+requests
+flask-cors
+flask-PyMongo
+pymongo

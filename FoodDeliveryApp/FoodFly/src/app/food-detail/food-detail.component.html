@@ -1,0 +1,24 @@
+<div *ngIf="pdet" class="container product-details-container">
+    <div class="row">
+      <div class="col-md-8 card">
+        <div class="gallery">
+          <img *ngIf="pdet?.image" class="card-img-top" [src]="pdet.image" alt="Card image"/>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" style="color: brown;">{{ pdet.name }}</h3>
+          <h3 class="card-title" style="color: rgb(211, 22, 138);">category: {{ pdet.category }}</h3>
+          <h3 class="card-title" style="color: rgb(108, 167, 201);"><b>Description: </b> {{ pdet.description }}</h3>
+          <p class="card-text">
+            Price {{ pdet.price | currency: 'INR' : 'symbol' }}
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4 card">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <a class="btn btn-primary mb-2" type="button" (click)="addFav(pdet)">Add to Fav</a>
+          <a class="btn btn-primary" type="button" (click)="addCart(pdet)">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

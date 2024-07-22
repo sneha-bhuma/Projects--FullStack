@@ -1,0 +1,35 @@
+
+
+<div class="card" style="width: 200px">
+    
+  
+    <div class="gallery"> <img
+      *ngIf="pdet?.image"
+      class="card-img-top"
+      [src]="pdet?.image"
+      [width]="200"
+      [height]="200"
+      [routerLink]="['/food', pdet?.id]"
+      alt="Card image"
+    />
+</div>
+  <div class="card-body">
+      <h3  style="color: brown;" class="card-title">{{ pdet?.name }}, {{ pdet?.category }}</h3>
+      
+      <p class="card-text">
+        Price {{ pdet?.price | currency : "INR" : "symbol" }}
+      </p>
+      
+      <!-- <a class="btn btn-primary" type="button" (click)="addCart(prod)">Add to Cart</a> -->
+      
+    </div>
+
+   
+  </div>
+  
+  
+
+  
+
+  
+  

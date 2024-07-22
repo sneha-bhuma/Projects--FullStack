@@ -1,0 +1,21 @@
+ 
+ <h2 style="color: blue;">Your favourites are below.</h2>
+    <div class="row">
+        <div class="card col-3 p-5" *ngFor="let x of x1">
+                <div class="card" style="width: 200px"   >
+                    
+                    <img  *ngIf="!x?.image" class="card-img-top" src="../../assets/images2/img_avatar1.png" [width]="200" [height]="200" alt="Card image" />
+                
+                    <img *ngIf="x?.image" class="card-img-top" [src]="x?.image" [width]="200" [height]="200" alt="Card image" />
+
+                    <div class="card-body">
+                        <h3 class="card-title">Name: {{ x?.name }}</h3>
+                        <p class="card-text">IMDB rating: {{x?.rating}}</p>
+                        <p class="card-text"> Description: {{ x?.desc }} </p> 
+                        <!-- <button   class="btn btn-primary" (click)="goToArticle(mdet)">Rent this movie</button> -->
+                    </div>
+
+                </div>
+         </div>
+    </div>
+ 

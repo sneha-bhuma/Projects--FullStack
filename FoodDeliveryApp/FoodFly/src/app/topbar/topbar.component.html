@@ -1,0 +1,46 @@
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: chocolate;">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/main']">
+      <img src="../../assets/images/Food Images/Main Images/logo.jpg" style="height: 35px; width: 45px;">
+      Food Fly
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/foods']">View Items</a>
+        </li> -->
+        <ul class="nav">
+          <li class="nav-item" *ngIf="!(loggedin$ | async)">
+            <a class="nav-link" [routerLink]="['/register']">Sign in</a>
+          </li>
+        </ul>
+      </ul>
+      <button type="button" class="wishlist-button" [routerLink]="['/showfav']" *ngIf="(loggedin$ | async)">
+        Favorites
+        <ng-container *ngIf="count >= 1">
+          <span class="position-absolute top-20 start-20 translate-middle badge rounded-pill bg-danger">
+            {{ count }}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </ng-container>
+      </button>
+      <div class="nav-item" *ngIf="(loggedin$ | async)">
+        <a class="nav-link cart-link" [routerLink]="['/cart']">
+          <mat-icon>shopping_cart</mat-icon> {{ totalQuantity }}
+        </a>
+      </div>
+      <div class="nav-item" *ngIf="(loggedin$ | async)">
+        <a class="nav-link logout-button" data-bs-toggle="modal" data-bs-target="#logoutModal" [routerLink]="['/logout']">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

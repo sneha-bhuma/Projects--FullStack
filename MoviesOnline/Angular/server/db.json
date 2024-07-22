@@ -1,0 +1,83 @@
+{
+  "emps": [
+    {
+      "id": "1",
+      "name": "a*",
+      "salary": 1,
+      "image": ""
+    },
+    {
+      "id": "2",
+      "name": "b*",
+      "salary": 2,
+      "image": ""
+    }
+  ],
+  "emps1": [
+    {
+      "id": "1",
+      "name": "a",
+      "salary": 1,
+      "image": "",
+      "star": false
+    }
+  ],
+  "movies": [
+    {
+      "id": "1",
+      "rating": "1",
+      "name": "Shawshank redemption",
+      "desc": "Real life drama",
+      "image": "../../assets/images2/shawshank.jpg"
+    },
+    {
+      "id": "2",
+      "rating": "2",
+      "name": "Interstellar",
+      "desc": "Science fiction",
+      "image": "../../assets/images2/interstellar.jpg"
+    },
+    {
+      "id": "3",
+      "rating": "3",
+      "name": "Inception",
+      "desc": "Science fiction",
+      "image": "../../assets/images2/inception.jpg"
+    },
+    {
+      "id": "4",
+      "rating": "4",
+      "name": "Martian",
+      "desc": "Science fiction",
+      "image": "../../assets/images2/martian.jpeg"
+    },
+    {
+      "id": "5",
+      "rating": "5",
+      "name": "Taxi Driver",
+      "desc": "Drama",
+      "image": "../../assets/images2/taxidriver.jpg"
+    },
+    {
+      "id": "6",
+      "rating": "6",
+      "name": "2001:Space Odyssey",
+      "desc": "Science fiction",
+      "image": "../../assets/images2/1.jpg"
+    },
+    {
+      "id": "7",
+      "rating": "7",
+      "name": "Primer",
+      "desc": "Science fiction",
+      "image": "../../assets/images2/2.jpg"
+    },
+    {
+      "id": "10",
+      "rating": "15",
+      "name": "pulp",
+      "desc": "comedy",
+      "image": " ../../assets/images2/4.jpg"
+    }
+  ]
+}

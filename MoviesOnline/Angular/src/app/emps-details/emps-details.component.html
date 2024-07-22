@@ -1,0 +1,32 @@
+<!-- <p>emps-details works!</p> -->
+
+<div class="card" style="width: 200px">
+    
+    <img
+      *ngIf="!edet?.image"
+      class="card-img-top"
+      src="../../assets/images/img_avatar1.png"
+      [width]="200"
+      [height]="200"
+      alt="Card image"
+    />
+  
+    <img
+      *ngIf="edet?.image"
+      class="card-img-top"
+      [src]="edet?.image"
+      [width]="200"
+      [height]="200"
+      alt="Card image"
+    />
+
+    <div class="card-body">
+        <h3 class="card-title">{{ edet?.name }}</h3>
+        <p class="card-text">An employee of UST Global at Hyderabad</p>
+        <p class="card-text"> Salary {{ edet?.salary | currency : "INR" : "symbol" }} </p> 
+        <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+
+</div>
+    
+  

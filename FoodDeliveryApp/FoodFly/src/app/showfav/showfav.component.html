@@ -1,0 +1,51 @@
+<button [routerLink]="['/foods']" 
+  style="
+    margin-left: 10px; margin-right: 10px; margin-top: 10px;
+    border: 1px solid #790c0c;
+    background-color: #d49a4d;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;" >
+  Go back to food items
+</button>
+
+
+
+<div class="box1" style="margin-left: 1020px; margin-right: 10px; margin-top: 8px;
+border-radius: 4px;">
+  <button mat-icon-button (click)="removeAllFav()" style="color: brown;">
+    <mat-icon>delete_sweep</mat-icon>
+  </button>
+  <span style="margin-left: 5px;">Delete All</span>
+</div>
+
+
+
+
+<!-------------------------------------------------------------------------------------------->
+
+<div>
+  <ng-container *ngIf="count === 0">
+    <h3>No favorites available</h3>
+  </ng-container>
+
+  <ng-container *ngIf="count >= 1">
+    <h3>Total of your favorite items: {{ count }}</h3>
+  </ng-container>
+</div>
+
+<div class="row">
+  <div class="card col-3 p-3" *ngFor="let prod of filteredFavs">
+    <div class="card" style="width: 200px;">
+      <div class="gallery">
+        <img *ngIf="prod.image" class="card-img-top" [src]="prod.image" [width]="200" [height]="200" alt="Card image">
+      </div>
+      <div class="card-body" row="">
+        <h3 style="color: brown;" class="card-title">{{ prod.name }}</h3>
+        <p class="card-text">Price {{ prod.price | currency : 'INR' : 'symbol' }}</p>
+        <button mat-icon-button style="color: red;" class="btn btn-primary" (click)="removeFav(prod)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
